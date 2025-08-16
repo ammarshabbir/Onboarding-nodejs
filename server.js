@@ -2,7 +2,7 @@ const app = require('./app');
 const dotenv = require('dotenv');
 const connectDB = require('./config/db');
 
-dotenv.config({ debug: false });
+dotenv.config();
 connectDB();
 
 const PORT = process.env.PORT || 5001;

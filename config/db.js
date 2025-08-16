@@ -3,20 +3,15 @@ const dotenv = require('dotenv');
 
 dotenv.config({ debug: false });
 
-
-
 const connectDB = async () => {
   try {
-    const uri =
-      process.env.NODE_ENV === 'production'
-        ? process.env.MONGO_URI_LIVE
-        : process.env.MONGO_URI_LOCAL;
+    const uri = process.env.MONGO_URI; // Using single URI variable
 
     await mongoose.connect(uri, {
 
     });
 
-    console.log(`MongoDB connected to ${process.env.NODE_ENV === 'production' ? 'LIVE' : 'LOCAL'} database`);
+    console.log(`MongoDB connected successfully`);
   } catch (error) {
     console.error('MongoDB connection error:', error);
     process.exit(1);
